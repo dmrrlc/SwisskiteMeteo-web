@@ -1,0 +1,3 @@
+swisskite_meteo_homepage:
+    path:     /
+    defaults: { _controller: SwisskiteMeteoBundle:Default:index }
