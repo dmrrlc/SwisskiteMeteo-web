@@ -10,10 +10,22 @@ class DefaultController extends Controller {
 		$meteoLog = $this->getMeteoLog ();
 		$meteoLog = $this->log2array ( $meteoLog );
 		
-		return $this->render ( 'SwisskiteMeteoBundle:Default:index.html.twig', array (
-				'content' =>  $meteoLog  
+		
+		return $this->render ( 'SwisskiteMeteoBundle:Default:live.html.twig', array (
+				'content' =>  $meteoLog[0] 
 		) );
 	}
+	
+	public function historyAction() {
+		$meteoLog = $this->getMeteoLog ();
+		$meteoLog = $this->log2array ( $meteoLog );
+	
+		return $this->render ( 'SwisskiteMeteoBundle:Default:live.html.twig', array (
+				'content' =>  $meteoLog
+		) );
+	}
+	
+	
 	private function getMeteoLog() {
 		$client = new Client ();
 		$client->request ( 'GET', 'http://www.swisskite.ch/weatherlink/downld08.txt' );
