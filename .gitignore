@@ -32,3 +32,9 @@
 
 # Composer PHAR
 /composer.phar
+
+# eclipse
+.project
+.settings
+.settings/*
+.buildpath
